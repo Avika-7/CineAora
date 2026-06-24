@@ -1,16 +1,164 @@
-# React + Vite
+# CineAora 🎬!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CineAora is a modern movie discovery platform built using React and TMDB API.  
+Explore trending movies, search your favorites, view detailed movie information, and create a personalized watchlist with a cinematic user experience!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##  Features
 
-## React Compiler
+-  Trending movies showcase
+-  Dynamic movie details pages
+-  Optimized movie search with debouncing
+-  Ratings and movie information
+-  Personal watchlist management
+-  Local storage persistence
+-  Animated hero carousel
+-  Fully responsive design
+-  Smooth UI animations
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Frontend**
+
+- React.js
+- Tailwind CSS
+- React Router
+- Context API
+- Framer Motion
+
+**API & Tools**
+
+- TMDB API
+- Axios
+- Local Storage
+- Vite
+
+---
+
+## Screenshots
+
+
+
+---
+
+##  Getting Started
+
+Follow these steps to run the project locally.
+
+---
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Avika-7/CineAora.git
+```
+
+---
+
+### 2. Navigate to the project folder
+
+```bash
+cd CineAora
+```
+
+---
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 4. Setup environment variables
+
+Create a `.env` file in the root directory.
+
+Add your TMDB API key:
+
+```env
+VITE_TMDB_API_KEY=your_api_key_here
+```
+
+You can get your API key from:
+
+https://www.themoviedb.org/
+
+---
+
+### 5. Start development server
+
+```bash
+npm run dev
+```
+
+---
+
+The application will run at:
+
+```
+http://localhost:5173
+```
+
+---
+
+##  Project Structure
+
+```
+src
+
+├── api
+│   └── tmdb.js
+│
+├── components
+│   ├── hero
+│   ├── movie
+│   ├── search
+│   └── common
+│
+├── context
+│   └── WatchlistContext.jsx
+│
+├── hooks
+│
+├── pages
+│
+├── routes
+│
+└── App.jsx
+```
+
+---
+
+## Key Learnings
+
+This project focuses on:
+
+- Component-based architecture
+- REST API integration
+- React hooks
+- Custom hooks
+- State management using Context API
+- Routing using React Router
+- Performance optimization with debouncing
+- Responsive UI development
+
+---
+
+## Future Improvements
+
+- User authentication
+- Backend watchlist storage
+- Personalized recommendations
+- Trailer integration
+- Infinite scrolling
+
+---
+
+## Author
+
+Developed by **Avika Kumar**
