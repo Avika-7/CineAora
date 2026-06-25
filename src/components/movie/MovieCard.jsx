@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
+import WatchlistButton from "../common/WatchlistButton";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, removeMode=false }) {
+
   return (
     <Link to={`/movie/${movie.id}`}>
       <div
         className="
         relative
         rounded-xl
+        h-full
+        flex
+        flex-col
         overflow-hidden
         bg-white/5
         backdrop-blur-sm
@@ -17,7 +22,6 @@ function MovieCard({ movie }) {
         hover:scale-105
         hover:shadow-xl
         hover:border-[#e0aaff]/40
-        hover:pb-4
         group
         "
       >
@@ -30,7 +34,7 @@ function MovieCard({ movie }) {
           alt={movie.title}
           className="
           w-full
-          aspect-3/4
+          aspect-2/3
           object-cover
           "
         />
@@ -39,11 +43,11 @@ function MovieCard({ movie }) {
         <div className="px-4">
           <h3
             className="
-          pt-3
-          font-bold
-          text-white
-          line-clamp-2
-          "
+            pt-3
+            font-bold
+            text-white
+            line-clamp-2
+            "
           >
             {movie.title}
           </h3>
@@ -78,7 +82,8 @@ function MovieCard({ movie }) {
             ⭐ {movie.vote_average?.toFixed(1)}
           </p>
 
-          <button
+          <WatchlistButton movie={movie} 
+            removeMode={removeMode}
             className="
             absolute
             bottom-1
@@ -86,11 +91,9 @@ function MovieCard({ movie }) {
             -translate-x-1/2
             bg-[#f9a825]
             text-[#10002b]
-            mt-10
-            px-2
-            py-1
+            py-1.25
             w-11/12
-            rounded-3xl
+            rounded-full
             text-sm
             font-semibold
             opacity-0
@@ -100,13 +103,8 @@ function MovieCard({ movie }) {
             hover:scale-105
             cursor-pointer
             "
-            onClick={(e) => {
-              e.preventDefault();
-              console.log(movie);
-            }}
-          >
-            + My List
-          </button>
+            />
+
         </div>
       </div>
     </Link>

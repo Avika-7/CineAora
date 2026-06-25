@@ -5,7 +5,7 @@ function MainLayout({ children }) {
   return (
     <>
       <Navbar />
-      {children}
+      <main className="pt-16">{children}</main>
     </>
   );
 }

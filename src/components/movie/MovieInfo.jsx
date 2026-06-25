@@ -1,8 +1,10 @@
 
 import { useWatchlist } from "../../context/WatchlistContext";
+import WatchlistButton from "../common/WatchlistButton";
 
 export default function MovieInfo({ movie }) {
-  const { addToWatchlist } = useWatchlist();
+  const { isInWatchlist, addToWatchlist } = useWatchlist();
+  const added = isInWatchlist(movie.id);
 
   return (
     <>
@@ -71,8 +73,7 @@ export default function MovieInfo({ movie }) {
             </h2>
             <p className="text-gray-300 leading-relaxed">{movie.overview}</p>
 
-            <button
-              onClick={() => addToWatchlist(movie)}
+            <WatchlistButton movie={movie}
               className="
               my-4
               px-6
@@ -85,9 +86,8 @@ export default function MovieInfo({ movie }) {
               transition
               cursor-pointer
               "
-            >
-              + Add To Watchlist
-            </button>
+            />
+              
           </div>
         </div>
       </div>

@@ -5,23 +5,23 @@ export default function useSearchMovies(debouncedSearchTerm, trendingMovies) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Runs when debouncedSearchTerm change
+  // Runs when debouncedSearchTerm changes
   useEffect(() => {
 
     async function fetchMovies() {
 
-      // EMPTY SEARCH → TRENDING
-      if (!debouncedSearchTerm.trim()) {
-        setMovies(trendingMovies);
-        return;
-      }
-
-      // SEARCH
       try {
         setLoading(true);
+
+        // IF EMPTY SEARCH -> TRENDING
+        if (!debouncedSearchTerm.trim()) {
+          setMovies(trendingMovies);
+          return;
+        }
+
+        // SEARCH
         const data = await searchMovies(debouncedSearchTerm);
         setMovies(data);
-
       } catch (error) {
         console.error("Error in fetching movies!", error);
 
@@ -35,7 +35,7 @@ export default function useSearchMovies(debouncedSearchTerm, trendingMovies) {
 
   useEffect(()=>{
 
-    if(!searchTerm.trim()){
+    if(!debouncedSearchTerm.trim()){
 
       setMovies(trendingMovies);
 

@@ -13,10 +13,13 @@ export function WatchlistProvider({ children }) {
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
   }, [watchlist]);
 
-  const addToWatchlist = (movie) => {
-    const alreadyExists = watchlist.some((item) => item.id === movie.id);
+  const isInWatchlist = (id) => {
+    return watchlist.some((movie) => movie.id === id);
+  };
 
-    if (!alreadyExists) {
+  const addToWatchlist = (movie) => {
+
+    if (!isInWatchlist(movie.id)) {
       setWatchlist((prev) => [...prev, movie]);
     }
   };
@@ -29,6 +32,7 @@ export function WatchlistProvider({ children }) {
     <WatchlistContext.Provider
       value={{
         watchlist,
+        isInWatchlist,
         addToWatchlist,
         removeFromWatchlist,
       }}

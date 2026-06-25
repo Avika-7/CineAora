@@ -25,7 +25,7 @@ export default function Home() {
         bg-linear-to-br
         from-[#10002b]
         to-[#3c096c]
-        text-white
+        text-white       
         "
       >
         <Hero movies={trendingMovies.slice(0, 7)} />
@@ -34,13 +34,16 @@ export default function Home() {
       <section
         className="
         min-h-screen
-        bg-linear-to-t
+        max-w-11/12
+        mx-auto
+        bg-linear-to-tl
         from-[#3c096c]
         via-[#10002b]
         to-[#10002b]
+        pb-16
         "
       >
-        <div className="max-w-10/12 mx-auto px-6 py-10">
+        <div className="px-6 py-10">
           <h1
             className="
             text-5xl
@@ -54,15 +57,15 @@ export default function Home() {
               : "Trending Movies"}
           </h1>
 
-          <p className="text-gray-300 mb-8">
-            Search and explore your favorite films.
+          <p className="text-gray-300 mt-4 mb-8">
+            Search and explore your favorite films!
           </p>
 
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
           {loading && <p className="text-[#e0aaff] mt-4">Searching...</p>}
         </div>
-        <MovieGrid movies={trendingMovies} />
+        <MovieGrid movies={movies} />
       </section>
     </>
   );

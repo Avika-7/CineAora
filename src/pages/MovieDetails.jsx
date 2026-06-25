@@ -26,21 +26,22 @@ export default function MovieDetails() {
 
   return (
     <div className="min-h-screen bg-[#10002b] text-white">
+      
       {/* Hero Backdrop */}
-      <div className="relative h-[70vh] ">
+      <div className="relative h-[70vh]">
         <img
           src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
           alt={movie.title}
           className="w-full h-full object-cover"
         />
 
-        {/* <div
+        <div
           className="
           absolute
           inset-0
           bg-black/60
           "
-        /> */}
+        />
 
         {/* Fade into page background */}
         <div

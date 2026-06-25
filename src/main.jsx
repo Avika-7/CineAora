@@ -9,10 +9,10 @@ import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <WatchlistProvider>
       <BrowserRouter>
-        <App />
+        <WatchlistProvider>
+          <App />
+        </WatchlistProvider>
       </BrowserRouter>
-    </WatchlistProvider>
   </StrictMode>,
 );

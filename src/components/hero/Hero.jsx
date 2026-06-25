@@ -8,7 +8,7 @@ function Hero({ movies }) {
     if (!movies?.length) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev === movies.length - 1 ? 0 : prev + 1));
+      setCurrentIndex(prev => (prev + 1) % movies.length)
     }, 3000);
 
     return () => clearInterval(interval);
@@ -17,6 +17,10 @@ function Hero({ movies }) {
   if (!movies?.length) return null;
 
   const movie = movies[currentIndex];
+
+  const imageUrl = movie.backdrop_path
+    ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+    : "/placeholder.jpg";
 
   return (
     <section
@@ -29,9 +33,9 @@ function Hero({ movies }) {
       <AnimatePresence mode="wait">
         <motion.img
           key={movie.id}
-          src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+          src={imageUrl}
           alt={movie.title}
-          className="absolute inset-0 w-full h-full mt-16 object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -150,6 +154,7 @@ function Hero({ movies }) {
         -translate-x-1/2
         flex
         gap-3
+        z-20
         "
       >
         {movies.map((_, index) => (
@@ -159,6 +164,7 @@ function Hero({ movies }) {
             className={`
               h-3
               w-3
+              cursor-pointer
               rounded-full
               transition-all
               ${

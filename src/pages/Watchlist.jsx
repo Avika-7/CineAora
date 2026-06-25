@@ -1,7 +1,7 @@
 
 import MovieCard from "../components/movie/MovieCard";
-
 import { useWatchlist } from "../context/WatchlistContext";
+import WatchlistButton from "../components/common/WatchlistButton";
 
 export default function Watchlist() {
   const { watchlist } = useWatchlist();
@@ -16,7 +16,6 @@ export default function Watchlist() {
       text-white
       "
     >
-
       <div className="max-w-7xl mx-auto px-6 py-10">
         <h1
           className="
@@ -44,7 +43,7 @@ export default function Watchlist() {
             "
           >
             {watchlist.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
+              <MovieCard key={movie.id} movie={movie} removeMode={true} />
             ))}
           </div>
         )}
