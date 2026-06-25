@@ -39,6 +39,7 @@ Explore trending movies, search your favorites, view detailed movie information,
 ---
 
 ## Screenshots
+<img width="669" height="529" alt="image" src="https://github.com/user-attachments/assets/b9b51b15-55f0-4775-951e-9724c5cdf36e" />
 
 
 
