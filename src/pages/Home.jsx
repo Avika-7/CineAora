@@ -3,7 +3,9 @@ import { useState } from "react";
 import Hero from "../components/hero/Hero";
 import SearchBar from "../components/search/SearchBar";
 import MovieGrid from "../components/movie/MovieGrid";
+import MovieRow from "../components/movie/MovieRow";
 
+import useGenreMovies from "../hooks/useGenreMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useDebounce from "../hooks/useDebounce";
 import useSearchMovies from "../hooks/useSearchMovies";
@@ -18,6 +20,8 @@ export default function Home() {
     trendingMovies,
   );
 
+  const genreMovies = useGenreMovies();
+console.log(genreMovies);
   return (
     <>
       <main
@@ -65,7 +69,13 @@ export default function Home() {
 
           {loading && <p className="text-[#e0aaff] mt-4">Searching...</p>}
         </div>
-        <MovieGrid movies={movies} />
+        {debouncedSearchTerm ? (
+          <MovieGrid movies={movies} />
+        ) : (
+          Object.entries(genreMovies || {}).map(([genre, movies]) => (
+            <MovieRow key={genre} title={genre} movies={movies} />
+          ))
+        )}
       </section>
     </>
   );
