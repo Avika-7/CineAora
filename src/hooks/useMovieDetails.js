@@ -7,12 +7,14 @@ export default function useMovieDetails(id){
 
   const [movie,setMovie]=useState(null);
   const [loading,setLoading]=useState(true);
+  
 
   useEffect(() => {
     async function fetchMovie() {
       try {
         const data = await getMovieDetails(id);
         setMovie(data);
+        
       
       } catch (error) {
         console.error(error);

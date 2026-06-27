@@ -1,12 +1,20 @@
-
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import useMovieDetails from "../hooks/useMovieDetails";
+import useMovieTrailer from "../hooks/useMovieTrailer";
+
 import MovieInfo from "../components/movie/MovieInfo";
+import TrailerModal from "../components/movie/TrailerModal";
 
 export default function MovieDetails() {
   const { id } = useParams();
   const { movie, loading } = useMovieDetails(id);
+  const [showTrailer, setShowTrailer] = useState(false);
+
+  const movieId = movie?.id;
+
+  const { trailerKey } = useMovieTrailer(movieId);
 
   if (loading) {
     return (
@@ -26,13 +34,18 @@ export default function MovieDetails() {
 
   return (
     <div className="min-h-screen bg-[#10002b] text-white">
-      
       {/* Hero Backdrop */}
-      <div className="relative h-[70vh]">
+      <div
+        className="relative  
+        h-[60vh]
+        sm:h-[75vh]
+        lg:h-[90vh]
+        overflow-hidden"
+        >
         <img
           src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
           alt={movie.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
         />
 
         <div
@@ -57,7 +70,14 @@ export default function MovieDetails() {
         />
       </div>
 
-      <MovieInfo movie={movie} />
+      <MovieInfo movie={movie} onTrailerClick={() => setShowTrailer(true)} />
+
+      <TrailerModal
+        isOpen={showTrailer}
+        onClose={() => setShowTrailer(false)}
+        trailerKey={trailerKey}
+      />
+      
     </div>
   );
 }

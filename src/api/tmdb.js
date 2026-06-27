@@ -34,3 +34,17 @@ export const getMovieDetails = async (id) => {
   return response.data;
 };
 
+// MOVIE TRAILERS
+export const getMovieTrailer = async (id) => {
+  const response = await api.get(
+    `/movie/${id}/videos?api_key=${API_KEY}`
+  );
+
+  const trailer = response.data.results.find(
+    (video) =>
+      video.site === "YouTube" &&
+      video.type === "Trailer"
+  );
+
+  return trailer;
+};

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import WatchlistButton from "../common/WatchlistButton";
+
 
 function Hero({ movies }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,7 +28,9 @@ function Hero({ movies }) {
     <section
       className="
       relative
-      h-[75vh]
+      h-[60vh]
+      sm:h-[75vh]
+      lg:h-[90vh]
       overflow-hidden    
       "
     >
@@ -35,7 +39,7 @@ function Hero({ movies }) {
           key={movie.id}
           src={imageUrl}
           alt={movie.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -104,45 +108,36 @@ function Hero({ movies }) {
 
         <p
           className="
-          text-gray-200
-          line-clamp-4
+          text-sm
+          md:text-md
+          text-white/70
+          line-clamp-2
           mb-6
           "
         >
           {movie.overview}
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           <button
-            className="
-            bg-[#f9a825]
-            text-[#2a003f]
-            px-6
-            py-3
+            className=" border
+            border-[#e0aaff]
+            text-[#e0aaff]
+            my-3
+            px-6 py-3
             rounded-full
-            font-bold
+            lg:text-lg
+            font-semibold
+            hover:bg-[#e0aaff]
+            hover:text-[#10002b]
             hover:scale-105
-            transition
-            "
+            transition cursor-pointer"
           >
             Watch Now
           </button>
 
-          <button
-            className="
-            border
-            border-[#e0aaff]
-            text-[#e0aaff]
-            px-6
-            py-3
-            rounded-full
-            hover:bg-[#e0aaff]
-            hover:text-[#10002b]
-            transition
-            "
-          >
-            More Info
-          </button>
+          <WatchlistButton movie={movie} className="my-3 px-6 py-3 rounded-full  bg-[#f9a825] text-[#10002b] lg:text-lg font-semibold hover:scale-105 transition cursor-pointer"/>
+          
         </div>
       </div>
 

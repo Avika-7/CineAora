@@ -1,6 +1,6 @@
 import { useWatchlist } from "../../context/WatchlistContext";
 
-function WatchlistButton({ movie, removeMode = false, className = "" }) {
+function WatchlistButton({ movie, removeMode = false, className="" }) {
   const { isInWatchlist, addToWatchlist, removeFromWatchlist } = useWatchlist();
 
   const added = isInWatchlist(movie.id);

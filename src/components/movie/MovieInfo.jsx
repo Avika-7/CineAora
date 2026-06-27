@@ -1,8 +1,12 @@
 
-import { useWatchlist } from "../../context/WatchlistContext";
 import WatchlistButton from "../common/WatchlistButton";
+import { useWatchlist } from "../../context/WatchlistContext";
+import TrailerButton from "./TrailerButton";
 
-export default function MovieInfo({ movie }) {
+export default function MovieInfo({
+    movie,
+    onTrailerClick,
+}) {
   const { isInWatchlist, addToWatchlist } = useWatchlist();
   const added = isInWatchlist(movie.id);
 
@@ -10,15 +14,18 @@ export default function MovieInfo({ movie }) {
     <>
       {/* Content */}
       <div className="max-w-6xl mx-auto px-6 -mt-45 relative z-10">
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-row flex-wrap gap-8">
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
             className="
-            w-full
-            md:w-80
+            w-50
+            sm:w-80
+            h-full
+            aspect-2/3
             rounded-xl
             shadow-2xl
+
             "
           />
 
@@ -71,23 +78,16 @@ export default function MovieInfo({ movie }) {
             >
               Overview
             </h2>
+
             <p className="text-gray-300 leading-relaxed">{movie.overview}</p>
 
-            <WatchlistButton movie={movie}
-              className="
-              my-4
-              px-6
-              py-3
-              rounded-full
-              bg-[#f9a825]
-              text-[#10002b]
-              font-semibold
-              hover:scale-105
-              transition
-              cursor-pointer
-              "
+            <div className="my-4">
+              <WatchlistButton movie={movie} className="m-1 px-6 py-3 rounded-full  bg-[#f9a825] text-[#10002b] font-semibold hover:scale-105 transition cursor-pointer"/>
+            <TrailerButton
+                onClick={onTrailerClick}
             />
-              
+            </div>
+            
           </div>
         </div>
       </div>
