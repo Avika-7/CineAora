@@ -10,7 +10,7 @@ export default function TrailerModal({
       className="
       fixed
       inset-0
-      bg-black/80
+      backdrop-blur-sm
       flex
       justify-center
       items-center

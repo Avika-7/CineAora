@@ -19,9 +19,9 @@ function MovieCard({ movie, removeMode=false }) {
         border-white/10
         transition-all
         duration-300
-        hover:scale-105
-        hover:shadow-xl
-        hover:border-[#e0aaff]/40
+        hover:-translate-y-1
+        hover:shadow-[#e0aaff]
+        hover: shadow-sm
         group
         "
       >
@@ -55,7 +55,7 @@ function MovieCard({ movie, removeMode=false }) {
           <p
             className="
           pb-4
-          text-[#ffcc00]/70
+          text-[#e0aaff]/70
           font-medium
           "
           >
@@ -63,30 +63,38 @@ function MovieCard({ movie, removeMode=false }) {
           </p>
 
           <p
-            className="
-          absolute
-          top-1
-          right-1
-          bg-[#10002b]/70
-          backdrop-blur-sm
-          px-1
-          py-1
-          rounded-full
-          text-xs
-          font-semibold
-          text-[#ffcc00]
-          border
-          border-[#ffcc00]/30
-          "
+           className="
+            absolute
+            top-2
+            right-2
+        
+            px-2.5
+            py-1
+
+            rounded-full
+
+            bg-black/45
+            backdrop-blur-lg
+
+            border
+            border-white/10
+
+            text-[#ffcc00]
+            text-xs
+            font-semibold
+
+            shadow-lg
+            shadow-black/40
+            "
           >
-            ⭐ {movie.vote_average?.toFixed(1)}
+            ★ {movie.vote_average?.toFixed(1)}
           </p>
 
           <WatchlistButton movie={movie} 
             removeMode={removeMode}
             className="
             absolute
-            bottom-1
+            bottom-0.5
             left-1/2
             -translate-x-1/2
             bg-[#f9a825]
@@ -98,8 +106,9 @@ function MovieCard({ movie, removeMode=false }) {
             font-semibold
             opacity-0
             group-hover:opacity-100
-            transition-all
-            duration-300
+            group-hover: transition-opacity 
+            group-hover:-translate-y-1
+            duration-500
             hover:scale-105
             cursor-pointer
             "

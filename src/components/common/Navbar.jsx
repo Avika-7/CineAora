@@ -9,7 +9,7 @@ function Navbar() {
       inset-x-0
       z-50
       bg-black/20
-      backdrop-blur-md
+      backdrop-blur-lg
       border-b
       border-[#e0aaff]/20
       text-white
@@ -30,8 +30,8 @@ function Navbar() {
         <Link
           to="/"
           className="
-          text-3xl
-          font-bold
+          font-myfont
+          text-4xl
           text-[#e0aaff]
           transition
           "

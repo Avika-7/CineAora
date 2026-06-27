@@ -48,26 +48,25 @@ function Hero({ movies }) {
       </AnimatePresence>
 
       <div
-        className="
-        absolute
-        inset-0
-        bg-linear-to-t
-        from-black
-        via-black/70
-        to-transparent
-        "
-      />
+          className="
+          absolute
+          inset-0
+          bg-black/60
+          "
+        />
 
-      <div
-        className="
-        absolute
-        inset-0
-        bg-linear-to-t
-        from-[#10002b]
-        via-transparent
-        to-transparent
-        "
-      />
+        {/* Fade into page background */}
+        <div
+          className="
+          absolute
+          inset-x-0
+          bottom-0
+          h-48
+          bg-linear-to-t
+          from-[#10002b]
+          to-transparent
+          "
+        />
 
       <div
         className="
@@ -96,6 +95,7 @@ function Hero({ movies }) {
 
         <h1
           className="
+          font-heading
           text-4xl
           md:text-6xl
           font-bold

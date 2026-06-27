@@ -46,6 +46,7 @@ export default function Home() {
         <div className="px-6 py-10">
           <h1
             className="
+            font-heading
             text-5xl
             font-bold
             text-[#e0aaff]
